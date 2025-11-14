@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross2 } from "react-icons/rx";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,19 +10,19 @@ export default function Navbar() {
     <header className="py-3.75 px-0 flex items-center bg-white relative">
       <div className="flex items-center w-full px-3 font-normal text-base justify-between">
         {/* Logo / Title */}
-        <a className="flex text-black">
-          <h1>MyPortfolio</h1>
+        <a className="flex text-black cursor-pointer font-normal text-base">
+          <h1 className="text-3xl font-bold leading-[1.2]">MyPortfolio</h1>
         </a>
 
         {/* Menu Icon (always rendered but visually toggled) */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`text-[32px] leading-0 cursor-pointer z-998 text-[#5b5b5b] hover:text-(--nav-hover-color) transition-colors ${
+          className={`leading-0 cursor-pointer z-998 text-[#5b5b5b] hover:text-(--nav-hover-color) transition-colors ${
             isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
           }`}
           aria-label="Open menu"
         >
-          <Menu size={32} />
+          <RxHamburgerMenu size={32} />
         </button>
       </div>
 
@@ -33,22 +34,34 @@ export default function Navbar() {
       >
         <ul className="py-2.5">
           <li>
-            <a className="flex items-center justify-between py-2.5 px-5 text-[#5b5b5b]">Home</a>
+            <a className="flex items-center justify-between py-2.5 px-5 text-[#5b5b5b]">
+              Home
+            </a>
           </li>
           <li>
-            <a className="flex items-center justify-between py-2.5 px-5 text-[#5b5b5b]">About</a>
+            <a className="flex items-center justify-between py-2.5 px-5 text-[#5b5b5b]">
+              About
+            </a>
           </li>
           <li>
-            <a className="flex items-center justify-between py-2.5 px-5 text-[#5b5b5b]">Services</a>
+            <a className="flex items-center justify-between py-2.5 px-5 text-[#5b5b5b]">
+              Services
+            </a>
           </li>
           <li>
-            <a className="flex items-center justify-between py-2.5 px-5 text-[#5b5b5b]">Portfolio</a>
+            <a className="flex items-center justify-between py-2.5 px-5 text-[#5b5b5b]">
+              Portfolio
+            </a>
           </li>
           <li>
-            <a className="flex items-center justify-between py-2.5 px-5 text-[#5b5b5b]">Dropdown</a>
+            <a className="flex items-center justify-between py-2.5 px-5 text-[#5b5b5b]">
+              Dropdown
+            </a>
           </li>
           <li>
-            <a className="flex items-center justify-between py-2.5 px-5 text-[#5b5b5b]">Contact</a>
+            <a className="flex items-center justify-between py-2.5 px-5 text-[#5b5b5b]">
+              Contact
+            </a>
           </li>
         </ul>
       </nav>
@@ -56,12 +69,13 @@ export default function Navbar() {
       {/* Close (X) Button */}
       <button
         onClick={() => setIsOpen(false)}
-        className={`fixed top-5 right-[310px] text-[#5b5b5b] hover:text-(--nav-hover-color) text-[32px] cursor-pointer z-999 border border- rounded-full bg-white p-1 transition-all ${
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed top-5 right-[310px] text-[#5b5b5b] hover:text-(--nav-hover-color) text-[32px] cursor-pointer z-999 border border-(--default-color)/20
+ rounded-full bg-white transition-all ${
+   isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+ }`}
         aria-label="Close menu"
       >
-        <X size={32} />
+        <RxCross2 size={32} />
       </button>
 
       {/* Overlay (click to close sidebar) */}
