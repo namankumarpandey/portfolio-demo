@@ -1,6 +1,5 @@
 "use client";
 import Cards from "@/components/Cards";
-import Link from "next/link";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from "react";
 import TabsSection from "@/components/TabsSection";
@@ -14,8 +13,10 @@ export default function Home() {
     <section className="py-15 overflow-clip">
       {/* Container */}
       <div className="sm:max-w-[540px] md:max-w-3xl lg:max-w-[960px] px-3 mx-auto w-full">
+
         {/* Header and Tabs Same Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 md:items-center md:justify-between -mx-3">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          
           {/* Left: Header */}
           <div className="px-3 shrink-0">
             <h3 className="font-medium text-2xl mb-[5px] leading-[1.2] mt-0 text-black">
