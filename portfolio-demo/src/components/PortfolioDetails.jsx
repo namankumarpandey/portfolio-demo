@@ -3,34 +3,28 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
-import { useRef } from "react";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
 export default function PortfolioDetails() {
-  const paginationRef = useRef(null);
-
   return (
     <section id="portfolio-details" className="py-15 px-0">
-      <div className="container mx-auto px-3">
+      <div className="mx-auto px-3">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
-          {/* LEFT: IMAGE SLIDER */}
-          <div className="px-12 mt-6">
+          {/* LEFT SIDE - IMAGE SLIDER */}
+          <div>
             <Swiper
               modules={[Pagination, Autoplay]}
               loop={true}
               speed={600}
-              autoplay={{ delay: 4000 }}
+              autoplay={{ delay: 5000 }}
+              slidesPerView="auto"
               pagination={{
+                el: ".custom-pagination",
                 clickable: true,
-                el: paginationRef.current,  // put dots here
               }}
-              onBeforeInit={(swiper) => {
-                swiper.params.pagination.el = paginationRef.current;
-              }}
-              className="w-full h-full"
+              className="portfolio-slider"
             >
               {[
                 "/assets/img/portfolio/app-1.jpg",
@@ -38,50 +32,63 @@ export default function PortfolioDetails() {
                 "/assets/img/portfolio/branding-1.jpg",
                 "/assets/img/portfolio/books-1.jpg",
               ].map((src, i) => (
-                <SwiperSlide key={i}>
+                <SwiperSlide key={i} className="flex justify-center">
                   <Image
                     src={src}
                     width={900}
                     height={600}
                     alt="Portfolio image"
-                    className="rounded-lg w-full h-auto"
+                    className="w-full h-auto"
                   />
                 </SwiperSlide>
               ))}
             </Swiper>
 
-            {/* ALWAYS SHOW DOTS HERE */}
-            <div
-              ref={paginationRef}
-              className="flex justify-center mt-4"
-            ></div>
+            {/* PAGINATION (always below image like Bootstrap) */}
+            <div className="custom-pagination flex justify-center mt-4"></div>
           </div>
 
-          {/* RIGHT CONTENT */}
-          <div className="space-y-8">
-            <div className="bg-white shadow-lg p-8 rounded-lg border">
-              <h2 className="text-xl font-semibold mb-4">
+          {/* RIGHT SIDE CONTENT */}
+          <div>
+            {/* PROJECT INFO */}
+            <div className="bg-white shadow-[0px_0px_30px_rgba(0,0,0,0.1)] p-7.5 rounded-lg">
+              <h3 className="text-xl font-semibold mb-4">
                 Project information
-              </h2>
-
+              </h3>
               <ul className="space-y-3 text-gray-700 text-[15px]">
-                <li><strong>Category:</strong> Web design</li>
-                <li><strong>Client:</strong> ASU Company</li>
-                <li><strong>Project date:</strong> 01 March, 2020</li>
-                <li><strong>Project URL:</strong> www.example.com</li>
+                <li>
+                  <strong>Category:</strong> Web design
+                </li>
+                <li>
+                  <strong>Client:</strong> ASU Company
+                </li>
+                <li>
+                  <strong>Project date:</strong> 01 March, 2020
+                </li>
+                <li>
+                  <strong>Project URL:</strong>{" "}
+                  <a href="#" className="text-blue-600 hover:underline">
+                    www.example.com
+                  </a>
+                </li>
               </ul>
             </div>
 
-            <div>
-              <h2 className="text-3xl font-bold mb-4 leading-snug">
+            {/* TITLE + DESCRIPTION */}
+            <div className="pt-7.5">
+              <h2 className="text-[26px] font-bold mb-5 leading-[1.2]">
                 Exercitationem repudiandae officiis neque suscipit
               </h2>
 
-              <p className="text-gray-600 leading-relaxed">
-                Autem ipsum nam porro corporis rerum...
+              <p className=" leading-relaxed mt-0 mb-4 p-0 text-[color-mix(in_srgb,var(--default-color),transparent_30%)]">
+                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos
+                itaque inventore commodi labore quia quia. Exercitationem
+                repudiandae officiis neque suscipit non officia eaque itaque
+                enim. Voluptatem officia accusantium nesciunt est omnis tempora
+                consectetur dignissimos. Sequi nulla at esse enim cum deserunt
+                eius.
               </p>
             </div>
-
           </div>
         </div>
       </div>

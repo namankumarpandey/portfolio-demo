@@ -1,106 +1,62 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function Cards() {
-  // Active tab state
-  const [activeTab, setActiveTab] = useState("All");
-
-  // Portfolio items
+export default function Cards({ activeTab }) {
   const portfolioItems = [
     {
       id: 1,
       title: "App 1",
-      desc: "Lorem ipsum",
-      img: "/assets/img/portfolio/app-1.jpg",
       category: "App",
+      img: "/assets/img/portfolio/app-1.jpg",
+      desc: "Lorem ipsum",
+      link: "/portfolio-details",
     },
     {
       id: 2,
       title: "Product 1",
-      desc: "Lorem ipsum",
-      img: "/assets/img/portfolio/product-1.jpg",
       category: "Product",
+      img: "/assets/img/portfolio/product-1.jpg",
+      desc: "Lorem ipsum",
       link: "/portfolio-details",
     },
     {
       id: 3,
       title: "Branding 1",
-      desc: "Lorem ipsum",
-      img: "/assets/img/portfolio/branding-1.jpg",
       category: "Branding",
-      link: "/branding",
+      img: "/assets/img/portfolio/branding-1.jpg",
+      desc: "Lorem ipsum",
+      link: "/portfolio-details",
     },
     {
       id: 4,
       title: "Books 1",
-      desc: "Lorem ipsum",
-      img: "/assets/img/portfolio/books-1.jpg",
       category: "Books",
+      img: "/assets/img/portfolio/books-1.jpg",
+      desc: "Lorem ipsum",
+      link: "/portfolio-details",
     },
     {
       id: 5,
       title: "App 2",
-      desc: "Lorem ipsum",
-      img: "/assets/img/portfolio/app-2.jpg",
       category: "App",
+      img: "/assets/img/portfolio/app-2.jpg",
+      desc: "Lorem ipsum",
+      link: "/portfolio-details",
     },
     {
       id: 6,
       title: "Product 2",
-      desc: "Lorem ipsum",
+      category: "Product",
       img: "/assets/img/portfolio/product-2.jpg",
-      category: "Product",
-    },
-    {
-      id: 7,
-      title: "Branding 2",
       desc: "Lorem ipsum",
-      img: "/assets/img/portfolio/branding-2.jpg",
-      category: "Branding",
-    },
-    {
-      id: 8,
-      title: "Books 2",
-      desc: "Lorem ipsum",
-      img: "/assets/img/portfolio/books-2.jpg",
-      category: "Books",
-    },
-    {
-      id: 9,
-      title: "App 3",
-      desc: "Lorem ipsum",
-      img: "/assets/img/portfolio/app-3.jpg",
-      category: "App",
-    },
-    {
-      id: 10,
-      title: "Product 3",
-      desc: "Lorem ipsum",
-      img: "/assets/img/portfolio/product-3.jpg",
-      category: "Product",
-    },
-    {
-      id: 11,
-      title: "Branding 3",
-      desc: "Lorem ipsum",
-      img: "/assets/img/portfolio/branding-3.jpg",
-      category: "Branding",
-    },
-    {
-      id: 12,
-      title: "Books 3",
-      desc: "Lorem ipsum",
-      img: "/assets/img/portfolio/books-3.jpg",
-      category: "Books",
+      link: "/portfolio-details",
     },
   ];
 
-  // Filtered data
   const [filteredData, setFilteredData] = useState(portfolioItems);
 
-  // Update on tab change
   useEffect(() => {
     if (activeTab === "All") {
       setFilteredData(portfolioItems);
@@ -112,55 +68,35 @@ export default function Cards() {
   }, [activeTab]);
 
   return (
-    <section>
-      {/* Cards Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-3 mt-6">
-        {filteredData.map((item) => (
-          <div
-            key={item.id}
-            className="relative group overflow-hidden rounded-lg"
-          >
-            {/* Portfolio Image */}
-            <Image
-              src={item.img}
-              alt={item.title}
-              width={500}
-              height={500}
-              className="w-full h-auto object-cover"
-            />
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+      {filteredData.map((item) => (
+        <div
+          key={item.id}
+          className="relative group overflow-hidden rounded-xl"
+        >
+          <Image
+            src={item.img}
+            alt={item.title}
+            width={600}
+            height={400}
+            className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+          />
 
-            {/* Overlay */}
-            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <h4 className="text-white text-lg font-semibold">{item.title}</h4>
-              <p className="text-white/80 inline-block text-center text-sm font-normal mb-4 mt-0">
-                {item.desc}
-              </p>
+          <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+            <h4 className="text-white text-lg font-semibold">{item.title}</h4>
+            <p className="text-white/80 text-sm mb-3">{item.desc}</p>
 
-              {/* Links */}
-              <div className="flex space-x-3">
-                {/* Lightbox Link */}
-                <a
-                  href={item.img}
-                  title={item.title}
-                  data-gallery="portfolio-gallery-app"
-                  className="items-center justify-center text-white hover:text-black transition"
-                >
-                  <i className="bi bi-zoom-in text-xl"></i>
-                </a>
-
-                {/* Details Page Link */}
-                <Link
-                  href={item?.link || ""}
-                  title="More Details"
-                  className="items-center justify-center text-white hover:text-black transition"
-                >
-                  <i className="bi bi-link-45deg text-xl"></i>
-                </Link>
-              </div>
+            <div className="flex gap-4">
+              <a href={item.img} className="text-white text-xl">
+                <i className="bi bi-zoom-in"></i>
+              </a>
+              <Link href={item.link} className="text-white text-xl">
+                <i className="bi bi-link-45deg"></i>
+              </Link>
             </div>
           </div>
-        ))}
-      </div>
-    </section>
+        </div>
+      ))}
+    </div>
   );
 }
