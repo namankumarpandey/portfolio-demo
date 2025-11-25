@@ -11,7 +11,7 @@ export default function PortfolioDetails() {
   return (
     <section id="portfolio-details" className="py-15 px-0">
       <div className="mx-auto px-3">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 desktop:grid-cols-2 gap-10">
           {/* LEFT SIDE - IMAGE SLIDER */}
           <div>
             <Swiper

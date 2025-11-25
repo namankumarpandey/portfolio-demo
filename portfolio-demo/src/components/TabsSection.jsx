@@ -2,7 +2,7 @@ export default function TabsSection({ activeTab, setActiveTab }) {
   const tabs = ["All", "App", "Product", "Branding", "Books"];
 
   return (
-    <div className="flex gap-6 text-[16px] mt-4 md:mt-0">
+    <div className="flex huge:justify-end gap-6 text-[16px] mb-5 justify-center">
       {tabs.map((tab) => (
         <button
           key={tab}
