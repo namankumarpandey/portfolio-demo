@@ -1,10 +1,15 @@
 "use client";
-import Cards from "@/components/Cards";
+
+import Cards from "@/components/Portfolio/Cards";
+import TabsSection from "@/components/TabsSection";
+import ClientSection from "@/components/Clients/ClientSection";
+import EndSection from "@/components/Clients/EndSection";
+
+import ServicesSectionTitle from "@/components/Services/ServicesSectionTitle";
+import ServicesCards from "@/components/Services/ServicesCards";
+
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from "react";
-import TabsSection from "@/components/TabsSection";
-import ClientSection from "@/components/ClientSection";
-import EndSection from "@/components/EndSection";
 
 export default function Home() {
   // All available tabs
@@ -42,10 +47,18 @@ export default function Home() {
 
       {/* Clients Section */}
       <section className="py-15 text-[#212529] bg-[#f9f9f9] text-center">
-      {/* Section Title */}
-      <ClientSection />
-      {/* End Section Title */}
-      <EndSection />
+        {/* Section Title */}
+        <ClientSection />
+        {/* End Section Title */}
+        <EndSection />
+      </section>
+
+      {/* Services Section */}
+      <section className="py-15 text-[#212529] bg-white overflow-clip">
+        {/* Services Section Title */}
+        <ServicesSectionTitle />
+        {/* Services Cards */}
+        <ServicesCards />
       </section>
     </>
   );

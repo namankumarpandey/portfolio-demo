@@ -5,7 +5,13 @@
   --background: #ffffff;
   --foreground: #212529;
   --accent-color: #000000;
+  --heading-color: #000000;
+
+  /* SWIPER VARIABLES */
+  /* --swiper-pagination-bottom: -20px;
+  --swiper-pagination-bullet-size: 10px; */
 }
+
 
 /* Fonts */
 :root {
