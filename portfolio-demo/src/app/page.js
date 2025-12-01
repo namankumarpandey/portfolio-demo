@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Cards from "@/components/Portfolio/Cards";
 import TabsSection from "@/components/TabsSection";
 import ClientSection from "@/components/Clients/ClientSection";
@@ -9,8 +10,6 @@ import ServicesSectionTitle from "@/components/Services/ServicesSectionTitle";
 import ServicesCards from "@/components/Services/ServicesCards";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { useState } from "react";
-import TestimonialsSectionTitle from "@/components/Testimonials/TestimonialsSectionTitle";
 import TestimonialsCards from "@/components/Testimonials/TestimonialsCards";
 
 export default function Home() {
@@ -65,8 +64,6 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <section className="py-15 text-[#212529] bg-white overflow-clip">
-        {/* Testimonials Section Title */}
-        <TestimonialsSectionTitle />
         {/* Testimonials Cards */}
         <TestimonialsCards />
       </section>

@@ -13,6 +13,16 @@ import React from "react";
 export default function TestimonialsCards() {
   return (
     <>
+      {/* Testimonials Section Title */}
+      <div className="pb-15 px-3 text-center tablet:max-w-[540px] desktop:max-w-[720px] huge:max-w-[960px] mx-auto">
+        <h2 className="mb-[15px] text-[32px] font-normal">Testimonials</h2>
+        <p>
+          Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
+          consectetur velit
+        </p>
+      </div>
+
+      {/* Testimonials Cards */}
       <div className="px-3 text-center tablet:max-w-[540px] desktop:max-w-[720px] huge:max-w-[960px] mx-auto">
         <Swiper
           loop
