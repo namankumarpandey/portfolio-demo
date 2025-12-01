@@ -8,10 +8,10 @@
   --heading-color: #000000;
 
   /* SWIPER VARIABLES */
-  /* --swiper-pagination-bottom: -20px;
-  --swiper-pagination-bullet-size: 10px; */
+  --swiper-pagination-bottom: -2px;
+  --swiper-pagination-bullet-width: 12px;
+  --swiper-pagination-bullet-height: 12px;
 }
-
 
 /* Fonts */
 :root {
@@ -19,6 +19,7 @@
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
 /* Theme config */
 @theme inline {
   --color-background: var(--background);

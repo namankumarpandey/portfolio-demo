@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 
 export default function ClientSwiper() {
   return (
-    <div className="pb-12">
+    <div>
       <Swiper
         loop
         speed={600}

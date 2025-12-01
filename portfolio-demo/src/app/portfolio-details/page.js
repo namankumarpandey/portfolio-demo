@@ -1,4 +1,4 @@
-import PortfolioDetails from "@/components/PortfolioDetails";
+import PortfolioDetails from "@/app/portfolio-details/components/PortfolioDetails";
 
 export default function PortFolio() {
   return (

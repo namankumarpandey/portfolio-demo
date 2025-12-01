@@ -10,6 +10,8 @@ import ServicesCards from "@/components/Services/ServicesCards";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from "react";
+import TestimonialsSectionTitle from "@/components/Testimonials/TestimonialsSectionTitle";
+import TestimonialsCards from "@/components/Testimonials/TestimonialsCards";
 
 export default function Home() {
   // All available tabs
@@ -59,6 +61,14 @@ export default function Home() {
         <ServicesSectionTitle />
         {/* Services Cards */}
         <ServicesCards />
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-15 text-[#212529] bg-white overflow-clip">
+        {/* Testimonials Section Title */}
+        <TestimonialsSectionTitle />
+        {/* Testimonials Cards */}
+        <TestimonialsCards />
       </section>
     </>
   );
