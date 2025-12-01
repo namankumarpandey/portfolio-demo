@@ -3,7 +3,7 @@
 import Slider from "@/app/portfolio-details/components/Slider";
 import ProjectInfo from "@/app/portfolio-details/components/ProjectInfo";
 import ProjectDescription from "@/app/portfolio-details/components/ProjectDescription";
-import { portfolioDetails } from "@/app/portfolio-details/data/portfolioDetailsData";
+import { portfolioDetails } from "@/data/portfolioDetailsData";
 
 export default function PortfolioDetails() {
   return (
